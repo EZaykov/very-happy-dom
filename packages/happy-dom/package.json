@@ -71,19 +71,21 @@
 		"compile:change-cjs-file-extension": "node ./bin/change-file-extension.cjs --dir=./cjs --fromExt=.js --toExt=.cjs",
 		"build-version-file": "node ./bin/build-version-file.cjs",
 		"watch": "tsc -w --preserveWatchOutput",
+		"watch:cjs": "tsc-watch --moduleResolution Node --module CommonJS --outDir cjs --noCheck --onSuccess \"npm run compile:change-cjs-file-extension\"",
 		"test": "vitest run",
 		"test:ui": "vitest --ui",
 		"test:watch": "vitest",
 		"test:debug": "vitest run --inspect-brk --no-file-parallelism"
 	},
 	"dependencies": {
-		"whatwg-mimetype": "^3.0.0",
+		"@types/node": "^20.0.0",
 		"@types/whatwg-mimetype": "^3.0.2",
-		"@types/node": "^20.0.0"
+		"whatwg-mimetype": "^3.0.0"
 	},
 	"devDependencies": {
 		"@vitest/ui": "^3.2.3",
 		"@webref/css": "6.6.2",
+		"tsc-watch": "^7.1.1",
 		"typescript": "^5.8.3",
 		"vitest": "^3.2.2"
 	},
